@@ -2,7 +2,10 @@
 <%@page import="com.pj.library.dto.BookDto"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page session="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +15,7 @@
 int pages = Integer.parseInt(request.getParameter("page"));
 int perPage = Integer.parseInt(request.getParameter("perPage"));
 XmlParsingInfo xmlParsingInfo = new XmlParsingInfo();
-List<BookDto> bookList = xmlParsingInfo.getData(pages, perPage);
+List<BookDto> booklist = xmlParsingInfo.getData(pages, perPage);
 %>
 <title>Insert title here</title>
 </head>
@@ -33,17 +36,21 @@ List<BookDto> bookList = xmlParsingInfo.getData(pages, perPage);
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${list}" var="book">
+            <c:forEach items="${booklist}" var="book">
                 <tr>
-                    <td>${book.대분류}</td>
-                    <td>${book.도서관구분코드}</td>
-                    <td>${book.도서관명}</td>
-                    <td>${book.도서관홈페이지url}</td>
-                    <td>${book.번호}</td>
-                    <td>${book.제목}</td>
-                    <td>${book.중분류}</td>
-                    <td>${book.출판사}</td>
-                    <td>${book.형식}</td>
+                
+                
+                
+                
+                    <td>${book.category}</td>
+                    <td>${book.libraryCode}</td>
+                    <td>${book.libraryName}</td>
+                    <td>${book.libraryHomepageUrl}</td>
+                    <td>${book.number}</td>
+                    <td>${book.title}</td>
+                    <td>${book.subCategory}</td>
+                    <td>${book.publisher}</td>
+                    <td>${book.format}</td>
                 </tr>
             </c:forEach>
         </tbody>

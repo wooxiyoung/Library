@@ -33,8 +33,8 @@ public class LibraryController {
 	    @GetMapping("/list")
 	    public String getData(@RequestParam int page, @RequestParam int perPage, Model model) {
 	    XmlParsingInfo xml = new XmlParsingInfo();
-	    List<BookDto> list = xml.getData(page, perPage);
-	    model.addAttribute("list", list);
+	    List<BookDto> booklist = xml.getData(page, perPage);
+	    model.addAttribute("list", booklist);
 	    return "list";
 	    }
 	    
